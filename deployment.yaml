@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: asgbuggy
+      app: secopsbuggy
   template:
     metadata:
       labels:
-        app: asgbuggy
+        app: secopsbuggy
     spec:
       containers:
-      - name: asgbuggy
-        image: 145988340565.dkr.ecr.us-west-2.amazonaws.com/asg
+      - name: secopsbuggy
+        image: 624284600553.dkr.ecr.us-west-2.amazonaws.com/secops
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -24,9 +24,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: asgbuggy
-    k8s-app: asgbuggy
-  name: asgbuggy
+    app: secopsbuggy
+    k8s-app: secopsbuggy
+  name: secopsbuggy
 spec:
   ports:
   - name: http
@@ -35,4 +35,4 @@ spec:
     targetPort: 8080
   type: LoadBalancer
   selector:
-    app: asgbuggy
+    app: secopsbuggy
